@@ -26,8 +26,8 @@ jobs:
         run: |
           git config user.name "${{ vars.USERNAME_GITHUB }}"
           git config user.email "${{ vars.EMAIL_GITHUB }}"
-          git tag ${{ env.tag_version }}
-          git push origin ${{ env.tag_version }}
+          git tag -f $TAG
+          git push origin $TAG --force
 
   build-Go-App:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Set up version
-      run: echo "IMAGE_VERSION=${{ env.tag_version }}" >> $GITHUB_ENV
+      run: echo "IMAGE_VERSION=$TAG" >> $GITHUB_ENV
 
     - name: Build the Docker image
       run: |
