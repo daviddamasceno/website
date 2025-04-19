@@ -48,7 +48,7 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --tag damascenod/webserver:${IMAGE_VERSION}
-        docker tag damascenod/webserver:${IMAGE_VERSION}
+        docker tag damascenod/webserver:${IMAGE_VERSION} damascenod/webserver:${IMAGE_VERSION}
 
     - name: Login to Docker Hub
       run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u damascenod --password-stdin
