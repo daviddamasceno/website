@@ -24,8 +24,8 @@ jobs:
 
       - name: Criar tag no GitHub
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "${{ vars.USERNAME_GITHUB }}"
+          git config user.email "${{ vars.EMAIL_GITHUB }}"
           git tag ${{ env.tag_version }}
           git push origin ${{ env.tag_version }}
 
