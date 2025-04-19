@@ -12,7 +12,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Erro ao obter hostname", http.StatusInternalServerError)
 		return
 	}
-	fmt.Fprintln(w, hostname)
+
+	w.Header().Set("Content-Type", "text/html")
+	fmt.Fprintf(w, "<h1>This request was processed by host: %s</h1>", hostname)
 }
 
 func main() {
