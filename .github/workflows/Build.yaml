@@ -35,6 +35,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
+
+    - name: Ler valor da tag do arquivo
+      id: read_tag
+      run: |
+        TAG=$(cat version)
+        echo "tag_version=$TAG" >> $GITHUB_ENV
     
     - name: Set up version
       run: echo "IMAGE_VERSION=${{ env.tag_version }}" >> $GITHUB_ENV
