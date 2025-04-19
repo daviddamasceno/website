@@ -14,7 +14,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprintf(w, "<h1>This request was processed by host: %s</h1> - V1", hostname)
+	fmt.Fprintf(w, "<h1>This request was processed by host: %s</h1> - V2", hostname)
 }
 
 func main() {
