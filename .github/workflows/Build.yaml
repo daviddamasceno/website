@@ -47,12 +47,12 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build . --tag damascenod/webserver:${IMAGE_VERSION}
-        docker tag damascenod/webserver:${IMAGE_VERSION} damascenod/webserver:${IMAGE_VERSION}
+        docker build . --tag ${DOCKER_HUB_REPO}:${IMAGE_VERSION}
+        docker tag ${DOCKER_HUB_REPO}:${IMAGE_VERSION} ${DOCKER_HUB_REPO}:${IMAGE_VERSION}
 
     - name: Login to Docker Hub
-      run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u damascenod --password-stdin
+      run: echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u ${DOCKER_HUB_USER} --password-stdin
 
     - name: Push image to Docker Hub
       run: |
-        docker push damascenod/webserver:${IMAGE_VERSION}
+        docker push ${DOCKER_HUB_REPO}:${IMAGE_VERSION}
