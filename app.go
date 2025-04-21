@@ -20,7 +20,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		<head>
 			<style>
 				body {
-					background-color: blue;
+					background-color: green;
 					color: white;
 					font-family: Arial, sans-serif;
 					text-align: center;
@@ -30,7 +30,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		</head>
 		<body>
 			<h1>This request was processed by host: %s</h1>
-			<p> - V2</p>
+			<p> - V1</p>
 		</body>
 		</html>
 		`, hostname)
