@@ -28,7 +28,7 @@ func proxyHandler(w http.ResponseWriter, r *http.Request) {
 	targetURL := strings.TrimPrefix(r.URL.Path, "/")
 
 	// Constrói a URL completa para a requisição de destino.
-	fullTargetURL := "https://" + targetURL
+	fullTargetURL := "http://" + targetURL
 	if r.URL.RawQuery != "" {
 		fullTargetURL += "?" + r.URL.RawQuery
 	}
